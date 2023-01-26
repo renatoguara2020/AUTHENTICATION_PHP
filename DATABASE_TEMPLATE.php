@@ -16,8 +16,12 @@ class Database
                 $this->password
             );
             $this->conn->exec('set names utf8');
-        } catch (PDOException $exception) {
-            echo 'Database could not be connected: ' . $exception->getMessage();
+            $this->conn->setAttribute(
+                PDO::ATTR_ERRMODE,
+                PDO::ERRMODE_EXCEPTION
+            );
+        } catch (PDOException $e) {
+            echo 'Database could not be connected: ' . $e->getMessage();
         }
         return $this->conn;
     }
