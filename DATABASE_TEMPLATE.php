@@ -25,5 +25,7 @@ class Database
         }
         return $this->conn;
     }
-}
-?>
+} ?>
+
+########## $database = new Database();
+########## $db = $database->getConnection();
